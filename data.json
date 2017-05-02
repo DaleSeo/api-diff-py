@@ -1,0 +1,314 @@
+{
+  "config": {
+    "log": "debug",
+    "globalIgnoreKeys": ["hostName", "instanceName", "Date", "x-sac-guid"]
+  },
+  "hosts": [
+    "qa-ec-store.sungsu.onestore.co.kr",
+    "qa-ec-kstore.sungsu.onestore.co.kr"
+  ],
+  "apis": [
+    {
+      "method": "GET",
+      "path": "/example/sample/detail?no=1",
+      "description": "sample detail",
+      "ignoreKeys": ["date"],
+      "skip": false
+    },
+
+    {
+      "method": "GET",
+      "path": "/example/sample/search",
+      "description": "sample search",
+      "ignoreKeys": ["date"],
+      "skip": false
+    },
+    {
+
+      "method": "GET",
+      "path": "/example/sample/error",
+      "description": "sample database error",
+      "skip": false
+    },
+    {
+      "method": "GET",
+      "path": "/example/exception/database",
+      "description": "sample database error",
+      "skip": false
+    },
+    {
+      "method": "GET",
+      "path": "/example/exception/hierarchy",
+      "description": "sample network error",
+      "skip": false
+    },
+    {
+      "method": "GET",
+      "path": "/inbound/sample/dummy?no=5",
+      "description": "inbound sample",
+      "ignoreKeys": ["description"],
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/message/sms/send",
+      "body": {
+        "recvMdn": "01033070713",
+        "teleSvcId": "0",
+        "srcId": "US004525",
+        "sendMdn": "0299998888",
+        "msg": "테스트 메세지"},
+      "skip": true
+    },
+    {
+      "method": "POST",
+      "path": "/idp/checkDupId",
+      "description": "IDP",
+      "body": {
+        "userId": "test"
+      },
+      "skip": true
+    },
+    {
+      "method": "POST",
+      "path": "/inicis/authAccount",
+      "description": "INICIS",
+      "body": {
+        "acctNm": "abc",
+        "acctNo": "123",
+        "bankCd": "abc"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/ocb/searchOcbPoint",
+      "description": "OCB",
+      "body": {
+        "ocbCardNum": "2462519078100028"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/payplanet/cancel/payment/v1",
+      "description": "Pay Planet",
+      "body": {
+        "token": "1",
+        "userKey": "",
+        "cdCancelReason": "1",
+        "tid": "1",
+        "version": ""
+      },
+      "skip": true
+    },
+    {
+      "method": "POST",
+      "path": "/shopping/getCouponUseStatus/v1",
+      "body": {
+        "couponPublishCode": "",
+        "prchsId": "abc"
+      },
+      "skip": false
+    },
+    {
+      "method": "GET",
+      "path": "/inbound/shopping/api/coupon?brandCode=100001176&brandName=[2016.02.26] SAC 배포 테스트&brandCategory=DP28008&brandImage=http://file.coupon.itopping.co.kr/upload/brand/2016/02/26/1456476875_0816_9755.jpg&chargeBrandYn=N&txId=CS16022617543620609984&txType=bd&cudType=C",
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/arm/removeLicense/v1",
+      "description": "ARM",
+      "body": {
+        "appId": "1",
+        "mdn": "1"
+      },
+      "skip": true
+    },
+    {
+      "description": "응답이 json이 아닌 HTML로 나옴",
+      "method": "POST",
+      "path": "/tstore/noti/v1",
+      "body": {
+        "deviceKey": "1",
+        "userKey": "1",
+        "prchsId": "1",
+        "type": "1",
+        "prchsDt": "1",
+        "publishType": "1"
+      },
+      "skip": true
+    },
+    {
+      "method": "POST",
+      "path": "/tstore/cash/getBalance/v1",
+      "body": {
+        "userKey" : "IW1023795408420101206143202",
+        "productGroup" : "01"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/icas/getMvno",
+      "description": "ICAS",
+      "body": {
+        "deviceId": "123"
+      },
+      "skip": true
+    },
+    {
+      "method": "POST",
+      "path": "/uaps/getOpmd",
+      "body": {
+        "deviceId": "98999720603"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/uaps/getOpmdChild",
+      "body": {
+        "deviceId": "01063168350",
+        "type":"mdn"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/uaps/getMapping",
+      "body": {
+        "deviceId": "01063168350",
+        "type":"mdn"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/uaps/getDevice",
+      "body": {
+        "deviceId": "01063168350",
+        "type":"mdn"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/uaps/getLimitSvc",
+      "body": {
+        "deviceId": "01063168350",
+        "type":"mdn"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/uaps/getAuthorize",
+      "body": {
+        "custId":"1234560123456",
+        "deviceId":"01094990159",
+        "type":"mdn"
+      },
+      "skip": false
+    },
+    {
+      "method": "GET",
+      "path": "/interpark/getAuthKey?type=test&ebFileNo=100656",
+      "description": "Interpark",
+      "skip": true
+    },
+    {
+      "method": "GET",
+      "path": "/nate/search?meta1=P&gubun=4&count=10&meta13&uvKey=30c611edd7e1bd39be751d9543dfb0dd&adult=N&meta17=I%2CB%2CW%2CV%2CH%2CE%2CJ%2CC%2CA&category=ALL&order=R&meta25=C&meta72=Y&q=SmartWorld&rel=Y&offset=0",
+      "description": "Search",
+      "skip": true
+    },
+    {
+      "method": "POST",
+      "path": "/colorRing/search",
+      "description": "Coloring",
+      "body": {
+        "deviceId": "01041035562"
+      },
+      "skip": true
+    },
+    {
+      "method": "POST",
+      "path": "/csp/getMvno",
+      "description": "CSP getMvno",
+      "body": {
+        "deviceId": "01041035562"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/csp/getCustomer",
+      "description": "CSP getCustomer",
+      "body": {
+        "deviceId": "01030163230"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/csp/getCustomerCard",
+      "description": "CSP getCustomerCard",
+      "body": {
+        "deviceId": "01030163230"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/isf/category/detail/v2",
+      "description": "ISF",
+      "body": {
+        "userKey": "US201410291719337860008012",
+        "cateId": "DP01003",
+        "adultYN": "Y"
+      },
+      "ignoreKeys": ["reqTime"],
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/market/authorizeForOllehMarketTest/v1",
+      "description": "Market authorizeForOllehMarketTest",
+      "body": {
+        "trxNo": "550e8400-e29b-41d4-a716-446655440000",
+        "deviceId": "01072019591",
+        "deviceTelecom": "US001202",
+        "nativeId": "351538060001421",
+        "simSerialNo": "8982300114002375019F",
+        "userVerifyReason" : "APP",
+        "requestUrl" : "https://221.148.247.84:58331/member/user/authorizeByMdn/v1"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/market/authorizeForOllehMarketTest/v1",
+      "description": "Market authorizeForOllehMarketTest",
+      "body": {
+        "trxNo": "550e8400-e29b-41d4-a716-446655440000",
+        "deviceId": "01072019591",
+        "deviceTelecom": "US001202",
+        "nativeId": "351538060001421",
+        "simSerialNo": "8982300114002375019F",
+        "userVerifyReason" : "APP",
+        "requestUrl" : "https://221.148.247.84:58331/member/user/authorizeByMdn/v1"
+      },
+      "skip": false
+    },
+    {
+      "method": "POST",
+      "path": "/otherTenant/getMvno",
+      "body": {
+        "carrier": "LGT",
+        "deviceId": "0102233636A"},
+      "skip": false
+    }
+  ]
+}
